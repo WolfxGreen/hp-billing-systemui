@@ -1,0 +1,9 @@
+<div id = "product-area">
+    <label id="example-radio-group-label">Pick your favorite season</label>
+    <div>
+        <mat-radio-group aria-label="Select Product" (change)="onChoosingProduct($event.value)">
+            <mat-radio-button value="MS">Petrol</mat-radio-button>
+            <mat-radio-button value="HSD">Diesel</mat-radio-button>
+        </mat-radio-group>
+    </div>
+</div>

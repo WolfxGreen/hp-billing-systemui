@@ -1,0 +1,13 @@
+.product-area{
+  align-content: center;
+}
+
+.mat-radio-button {
+  display: inline-block;
+    vertical-align: top;
+  }
+
+  .example-radio-group-label {
+    display: flex;
+    flex-direction: column;
+  }
