@@ -11,29 +11,34 @@ import { BillingService } from 'src/app/billing.service';
 export class MsComponent implements OnInit {
 
   msForm!: FormGroup;
+  res: any;
 
   constructor(public datepipe: DatePipe, private billingService : BillingService) { 
   }
 
   ngOnInit() {
     this.msForm = new FormGroup({
-      TxnDate: new FormControl(this.datepipe.transform((new Date), 'dd/MM/yyyy')),
-      TxnTime: new FormControl(this.datepipe.transform((new Date), 'H:MM:SS')),
-      TxnID: new FormControl(),
-      TxnType: new FormControl('cash'),
+      // date: new FormControl(this.datepipe.transform((new Date), 'dd/MM/yyyy')),
+      // TxnTime: new FormControl(this.datepipe.transform((new Date), 'H:MM:SS')),
+      date: new FormControl(),
+      TxnTime: new FormControl(),
+      type: new FormControl('cash'),
       PumpNo: new FormControl('1'),
       NozzleNo: new FormControl('1'),
-      Product: new FormControl('MS'),
-      Price: new FormControl(),
-      VehicleNo: new FormControl(),
-      Quantity: new FormControl(),
-      Amount: new FormControl()
+      product: new FormControl('MS'),
+      price: new FormControl(),
+      vehicleNo: new FormControl(),
+      quantity: new FormControl()
     });
   }
 
-  onGenerateMSBill() {
+ async onGenerateMSBill() {
     console.log(this.msForm.value);
-    const res:any =  this.billingService.generateBilling(this.msForm.value);
-    console.log(res);
+    await this.billingService.generateBilling(this.msForm.value)
+    .subscribe(data=>{
+      this.res=data;
+      console.log(JSON.stringify(this.res));
+    });
+    
   }
 }

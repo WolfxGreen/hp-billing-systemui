@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -13,9 +14,6 @@ export class BillingService {
   constructor(private http: HttpClient) { }
 
   generateBilling(billingdata : any){
-    this.http.post<any>(this.REST_API_URL, billingdata).subscribe(data => {
-        this.res = data;
-    })
-
+    return this.http.post<any>(this.REST_API_URL, billingdata)
+    }
   }
-}

@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
   }
 
   onChoosingProduct(event : any){
+    console.log("Product" + event);
     if(event == 'MS'){
       this.router.navigate(['/billing/ms']);
     }else if (event == 'HSD'){
