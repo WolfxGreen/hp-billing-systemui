@@ -4,12 +4,12 @@
             <!-- <title>HPCL BABAJI PETRO POINT HP PETROL PUMP S.No 405 2A Nookampalayam Main Road Perumbakkam Chennai-600100</title> -->
             <form class="ms-form" [formGroup]="msForm">
                 <mat-form-field class="ms-fields-full-width">
-                    <mat-label>TxnDate</mat-label>
+                    <mat-label>TxnDate - DD/MM/YYYY</mat-label>
                     <input matInput formControlName="date" />
                 </mat-form-field>
                 <mat-form-field class="ms-fields-full-width">
-                    <mat-label>TxnTime</mat-label>
-                    <input matInput formControlName="TxnTime"/>
+                    <mat-label>TxnTime - HH:MM:SS</mat-label>
+                    <input matInput formControlName="time"/>
                 </mat-form-field>
                 <mat-form-field class="ms-fields-full-width">
                     <mat-label>TxnType</mat-label>
@@ -39,7 +39,11 @@
                     <mat-label>Quantity</mat-label>
                     <input matInput formControlName="quantity"/>
                 </mat-form-field>
-                <button mat-raised-button color="accent" (click)="onGenerateMSBill()">Print</button>
+                <mat-form-field class="ms-fields-full-width">
+                    <mat-label>Amount</mat-label>
+                    <input matInput formControlName="amount"/>
+                </mat-form-field>
+                <button mat-raised-button color="accent" (click)="onGenerateMSBill()">Calculate</button>
             </form>
         </mat-grid-tile>
     </mat-grid-list>

@@ -13,6 +13,7 @@ import { HsdComponent } from './product/hsd/hsd.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { PrintComponent } from './product/print/print.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     ProductComponent,
     MsComponent,
-    HsdComponent
+    HsdComponent,
+    PrintComponent
   ],
   imports: [
     BrowserModule,
